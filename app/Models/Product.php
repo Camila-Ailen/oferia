@@ -8,4 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'sku',
+        'name',
+        'detail',
+        'image_path',
+        'price',
+        'subcategory_id'
+    ];
+
+    //Relacion uno a muchos inversa
+    public function subcategory()
+    {
+        return $this->belongsTo(Subcategory::class);
+    }
+
+    //Relacion uno a muchos
+    public function variants()
+    {
+        return $this->hasMany(Variant::class);
+    }
+
+    //Relacion muchos a muchos
+    public function options()
+    {
+        return $this->belongsToMany(Option::class)
+            ->withPivot('features')
+            ->withTimestamps();
+    }
 }
