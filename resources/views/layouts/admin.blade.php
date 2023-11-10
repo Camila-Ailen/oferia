@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    {{-- Script de FontAwesome --}}
+    {{-- FontAwesome --}}
     <script src="https://kit.fontawesome.com/6618d2e822.js" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
@@ -47,6 +47,16 @@
 
 
     @livewireScripts
+
+    {{-- SweetAlert2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if (session('swal'))
+        <script>
+            Swal.fire({!! json_encode(session('swal')) !!});
+        </script>
+    @endif
+
 </body>
 
 </html>
