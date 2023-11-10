@@ -67,7 +67,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:categories,name,' . $category->id,
+        ]);
+
+        $category->update($request->all());
+
+        session()->flash('swal', [
+            'icon' => 'success',
+            'title' => 'Perfecto!',
+            'text' => 'La categoría se actualizó correctamente.',
+        ]);
+
+        return redirect()->route('admin.categories.edit', $category);
     }
 
     /**
