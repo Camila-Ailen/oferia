@@ -1,11 +1,20 @@
 @php
     $links = [
+        //Dashboard
         [
             'route' => route('admin.dashboard'),
             'active' => request()->routeIs('admin.dashboard'),
             'icon' => 'fa-solid fa-gauge',
             'name' => 'Dashboard',
         ],
+        //Familias de productos
+        [
+            'route' => route('admin.families.index'),
+            'active' => request()->routeIs('admin.families.*'),
+            'icon' => 'fa-solid fa-box-open',
+            'name' => 'Families',
+        ],
+        //Categorias de productos
         [
             'route' => route('admin.categories.index'),
             'active' => request()->routeIs('admin.categories.*'),

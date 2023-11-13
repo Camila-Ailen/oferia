@@ -49,5 +49,8 @@
         </table>
     </div>
 
+    <div class="mt-4">
+        {{ $categories->links() }}
+
 
 </x-admin-layout>
