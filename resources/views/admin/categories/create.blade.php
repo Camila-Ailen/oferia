@@ -1,4 +1,16 @@
-<x-admin-layout>
+<x-admin-layout :breadcrumbs="[
+    [
+        'name' => 'Dashboard',
+        'route' => route('admin.dashboard'),
+    ],
+    [
+        'name' => 'Categories',
+        'route' => route('admin.categories'),
+    ],
+    [
+        'name' => 'Create',
+    ],
+]">
 
     <x-card>
 
@@ -11,11 +23,7 @@
                 <x-label class="mb-1">
                     Nombre
                 </x-label>
-                <x-input 
-                    class="w-full" 
-                    placeholder="Nombre de la categoria"
-                    name="name"
-                    value="{{ old('name') }}" />
+                <x-input class="w-full" placeholder="Nombre de la categoria" name="name" value="{{ old('name') }}" />
 
                 {{-- <x-input-error for="name" class="mt-2" /> --}}
             </div>

@@ -33,7 +33,7 @@
         '-translate-x-full ease-in': !sidebarOpen
     }"
     aria-label="Sidebar">
-    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-neutral-800">
         <ul class="space-y-2 font-medium">
 
 
@@ -43,7 +43,7 @@
                 <li>
 
                     <a href="{{ $link['route'] }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ $link['active'] }} ? dark:bg-green-200 : '' }}">
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-green-200 hover:bg-gray-100 dark:hover:bg-gray-700 group {{ $link['active'] }} ? dark:bg-green-800 : '' }}">
 
                         <span class="inline-flex w-6 h-6 justify-center items-center">
                             <i class="{{ $link['icon'] }} text-gray-500"></i>

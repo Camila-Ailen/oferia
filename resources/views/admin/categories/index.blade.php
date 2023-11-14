@@ -1,4 +1,12 @@
-<x-admin-layout>
+<x-admin-layout :breadcrumbs="[
+    [
+        'name' => 'Dashboard',
+        'route' => route('admin.dashboard'),
+    ],
+    [
+        'name' => 'Categories',
+    ],
+]">
 
     <div class="flex justify-end mb-4">
         <x-a href="{{ route('admin.categories.create') }}">
