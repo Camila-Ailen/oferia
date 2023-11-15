@@ -5,21 +5,21 @@
             'route' => route('admin.dashboard'),
             'active' => request()->routeIs('admin.dashboard'),
             'icon' => 'fa fa-home',
-            'name' => 'Dashboard',
+            'name' => 'Inicio',
         ],
         //Familias de productos
         [
             'route' => route('admin.families.index'),
             'active' => request()->routeIs('admin.families.*'),
             'icon' => 'fa fa-box-open',
-            'name' => 'Families',
+            'name' => 'Familias',
         ],
         //Categorias de productos
         [
             'route' => route('admin.categories.index'),
             'active' => request()->routeIs('admin.categories.*'),
             'icon' => 'fa fa-tags',
-            'name' => 'Categories',
+            'name' => 'Categorías',
         ],
     ];
 

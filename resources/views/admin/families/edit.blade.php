@@ -8,7 +8,7 @@
         'route' => route('admin.families.index'),
     ],
     [
-        'name' => 'Editar',
+        'name' => $family->name,
 ],
 ]">
 

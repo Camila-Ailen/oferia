@@ -8,9 +8,7 @@
         'route' => route('admin.categories.index'),
     ],
     [
-        'name' => 'Editar',
-        'route' => route('admin.categories.edit', $category),
-        'current' => true,
+        'name' => $category->name,
     ],
 ]">
 

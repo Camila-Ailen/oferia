@@ -27,6 +27,9 @@
                         Nombre
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Familia
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         
                     </th>
                 </tr>
@@ -40,6 +43,9 @@
                     </th>
                     <td class="px-6 py-4">
                         {{ $category->name }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $category->family->name }}
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex justify-end">

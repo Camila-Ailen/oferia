@@ -44,7 +44,6 @@ class FamilyController extends Controller
         ]);
 
         return redirect()->route('admin.families.index');
-
     }
 
     /**
@@ -88,6 +87,18 @@ class FamilyController extends Controller
      */
     public function destroy(Family $family)
     {
+
+        if ($family->categories->count() > 0) {
+            session()->flash('swal', [
+                'icon' => 'error',
+                'title' => 'Ups!',
+                'text' => 'No se puede eliminar porque tiene categorias asociadas.',
+            ]);
+
+            return redirect()->route('admin.families.edit', $family);
+
+        }
+
         $family->delete();
 
         session()->flash('swal', [
@@ -97,5 +108,6 @@ class FamilyController extends Controller
         ]);
 
         return redirect()->route('admin.families.index');
+    
     }
 }
