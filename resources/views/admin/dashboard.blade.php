@@ -1,6 +1,6 @@
 <x-admin-layout :breadcrumbs="[
     [
-        'name' => 'Dashboard',
+        'name' => 'Inicio',
     ],
 ]">
 

@@ -1,14 +1,14 @@
 <x-admin-layout :breadcrumbs="[
     [
-        'name' => 'Dashboard',
+        'name' => 'Inicio',
         'route' => route('admin.dashboard'),
     ],
     [
-        'name' => 'Categories',
-        'route' => route('admin.categories'),
+        'name' => 'Categorías',
+        'route' => route('admin.categories.index'),
     ],
     [
-        'name' => 'Create',
+        'name' => 'Crear',
     ],
 ]">
 

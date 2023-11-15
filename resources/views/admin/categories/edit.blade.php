@@ -1,15 +1,17 @@
 <x-admin-layout :breadcrumbs="[
     [
-        'name' => 'Dashboard',
+        'name' => 'Inicio',
         'route' => route('admin.dashboard'),
     ],
     [
-        'name' => 'Categories',
-        'route' => route('admin.categories'),
+        'name' => 'Categorías',
+        'route' => route('admin.categories.index'),
     ],
     [
-        'name' => 'Edit',
-],
+        'name' => 'Editar',
+        'route' => route('admin.categories.edit', $category),
+        'current' => true,
+    ],
 ]">
 
     <x-card>

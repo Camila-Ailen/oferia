@@ -1,4 +1,16 @@
-<x-admin-layout>
+<x-admin-layout :breadcrumbs="[
+    [
+        'name' => 'Inicio',
+        'route' => route('admin.dashboard'),
+    ],
+    [
+        'name' => 'Familias',
+        'route' => route('admin.families.index'),
+    ],
+    [
+        'name' => 'Editar',
+],
+]">
 
     <x-card>
 

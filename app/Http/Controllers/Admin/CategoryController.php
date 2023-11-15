@@ -33,6 +33,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:categories',
+            'family_id' => 'required|unique:categories',
         ]);
 
         Category::create($request->all());
