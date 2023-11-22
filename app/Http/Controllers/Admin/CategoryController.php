@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use App\Models\Family; // Add this line to import the Family model
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        $families = Family::all();
+        return view('admin.categories.create', compact('families'));
     }
 
     /**
@@ -32,8 +34,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:categories',
-            'family_id' => 'required|unique:categories',
+            'family_id' => 'required|exists:families,id',
+            'name' => 'required|unique:categories',  
         ]);
 
         Category::create($request->all());
