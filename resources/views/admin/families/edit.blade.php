@@ -52,8 +52,6 @@
         @csrf
         @method('DELETE')
 
-
-    
     </form>
 
     @push('js')
