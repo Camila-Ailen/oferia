@@ -11,4 +11,4 @@ Route::get('/', function () {
 
 Route::resource('families', FamilyController::class);
 Route::resource('categories', CategoryController::class);
-Route::resource('sucategories', SubcategoryController::class);
+Route::resource('subcategories', SubcategoryController::class);

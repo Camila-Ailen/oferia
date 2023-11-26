@@ -13,7 +13,7 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::orderBy('id', 'desc')
+        $subcategories = Subcategory::orderBy('id')
         ->with('category.family')
         ->paginate(10);
 

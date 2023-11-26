@@ -21,6 +21,13 @@
             'icon' => 'fa fa-tags',
             'name' => 'Categorías',
         ],
+        //Subcategorias de productos
+        [
+            'route' => route('admin.subcategories.index'),
+            'active' => request()->routeIs('admin.subcategories.*'),
+            'icon' => 'fa fa-tag',
+            'name' => 'Subcategorías',
+        ],
     ];
 
 @endphp
