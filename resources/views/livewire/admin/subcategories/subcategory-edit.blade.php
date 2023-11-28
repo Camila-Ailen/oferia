@@ -56,9 +56,49 @@
         </div>
     
         <div class="flex justify-end">
-            <x-button>
+            <x-danger-button class="mr-2" onclick="confirmDelete()">
+                Eliminar
+            </x-danger-button>
+
+            <x-button class="ml-2">
                 Actualizar
             </x-button>
         </div>
     </form>
+
+    <form 
+        action="{{ route('admin.subcategories.destroy', $subcategory) }}" 
+        method="POST"
+        id="destroyForm">
+        @csrf
+        @method('DELETE')
+
+    </form>
+
+    @push('js')
+        <script>
+            function confirmDelete() {
+                Swal.fire({
+                    title: "Estas seguro?",
+                    text: "No podras revertir esto!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Si, borralo!",
+                    cancelButtonText: "Cancelar"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Swal.fire({
+                        //     title: "Deleted!",
+                        //     text: "Your file has been deleted.",
+                        //     icon: "success"
+                        // });
+                        document.getElementById('destroyForm').submit();
+                    }
+                });
+            }
+        </script>
+    @endpush
+
 </div>
