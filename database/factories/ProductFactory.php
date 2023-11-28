@@ -22,7 +22,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->text(200),
             'image_path' => 'products/' . $this->faker->image('public/storage/products', 640, 480, null, false), //
             'price' => $this->faker->randomFloat(2, 1, 1000),
-            'subcategory_id' => $this->faker->numberBetween(1, 417),
+            'subcategory_id' => $this->faker->numberBetween(1, 416),
         ];          
     }
 }
