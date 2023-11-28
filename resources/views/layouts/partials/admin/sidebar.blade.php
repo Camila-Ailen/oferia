@@ -28,6 +28,13 @@
             'icon' => 'fa fa-tag',
             'name' => 'Subcategorías',
         ],
+        //Productos
+        [
+            'route' => route('admin.products.index'),
+            'active' => request()->routeIs('admin.products.*'),
+            'icon' => 'fa fa-box',
+            'name' => 'Productos',
+        ],
     ];
 
 @endphp
