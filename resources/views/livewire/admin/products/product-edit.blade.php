@@ -147,8 +147,13 @@
                     placeholder="Por favor ingrese el precio del producto" />
             </div>
             
-            {{-- Boton para actualizar --}}
+            {{-- Boton para actualizar y eliminar --}}
             <div class="flex justify-end">
+                <x-danger-button class="mr-2" onclick="confirmDelete()">
+                    Eliminar
+                </x-danger-button>
+
+
                 <x-button>
                     Actualizar
                 </x-button>
@@ -157,5 +162,42 @@
         </div>
 
     </form>
+
+    <form 
+        action="{{ route('admin.products.destroy', $product) }}" 
+        method="POST"
+        id="destroyForm">
+        @csrf
+        @method('DELETE')
+
+    </form>
+
+    {{-- Confirmacion de eliminar --}}
+    @push('js')
+        <script>
+            function confirmDelete() {
+                Swal.fire({
+                    title: "Estas seguro?",
+                    text: "No podras revertir esto!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Si, borralo!",
+                    cancelButtonText: "Cancelar"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Swal.fire({
+                        //     title: "Deleted!",
+                        //     text: "Your file has been deleted.",
+                        //     icon: "success"
+                        // });
+                        document.getElementById('destroyForm').submit();
+                    }
+                });
+            }
+        </script>
+    @endpush
+
 </div>
 
