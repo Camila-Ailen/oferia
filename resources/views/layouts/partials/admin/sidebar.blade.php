@@ -7,6 +7,13 @@
             'icon' => 'fa fa-home',
             'name' => 'Inicio',
         ],
+        //Opciones
+        [
+            'route' => route('admin.options.index'),
+            'active' => request()->routeIs('admin.options.*'),
+            'icon' => 'fa fa-cog',
+            'name' => 'Opciones',
+        ],
         //Familias de productos
         [
             'route' => route('admin.families.index'),

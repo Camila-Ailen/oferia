@@ -15,8 +15,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('id', 'desc')
+        ->with('subcategory.category.family')
         ->paginate(10);
-        // ->with('subcategories.categories.families');
 
         return view('admin.products.index', compact('products'));
     }
