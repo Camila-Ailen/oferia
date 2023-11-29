@@ -78,7 +78,7 @@ class ProductCreate extends Component
             'product.name' => 'required|max:255',
             'product.description' => 'nullable',
             'product.price' => 'required|numeric|min:0',
-            'product.subcategory_id' => 'required|exists:subcategory,id',   
+            'product.subcategory_id' => 'required|exists:subcategories,id',   
         ],[],[
             'product.sku' => 'del codigo',
             'product.name' => 'nombre',
