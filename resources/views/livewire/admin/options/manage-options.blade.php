@@ -19,7 +19,8 @@
             <div class="space-y-6">
 
                 @foreach ($options as $option)
-                    <div class="p-6 rounded-lg border border-gray-200 relative">
+                    <div class="p-6 rounded-lg border border-gray-200 relative"
+                        wire:kay="option-{{$option->id}}">
                         <div class="absolute -top-3 px-4 bg-white">
                             <span>
                                 {{ $option->name }}
@@ -27,7 +28,7 @@
                         </div>
 
                         {{-- Valores --}}
-                        <div class="flex flex-wrap">
+                        <div class="flex flex-wrap mb-4">
                             @foreach ($option->features as $feature)
                                 @switch($option->type)
                                     @case(1)
@@ -49,6 +50,10 @@
                                     @default
                                 @endswitch
                             @endforeach
+                        </div>
+
+                        <div>
+                            @livewire('admin.options.add-new-feature', ['option' => $option], key('add-new-feature-' . $option->id))
                         </div>
 
                     </div>
@@ -141,7 +146,7 @@
                                         <div class="border border-gray-300 rounded-md h-[42px] flex items-center justify-between px-3">
 
                                             {{
-                                                $newOption['features'][$index]['value'] ?: 'Seleccione un color'
+                                                $newOption->features[$index]['value'] ?: 'Seleccione un color'
                                             }}
 
                                             <input type="color"
@@ -162,7 +167,9 @@
                                     Descripción
                                 </x-label>
 
-                                <x-input wire:model="newOption.features.{{ $index }}.description" class="w-full"
+                                <x-input 
+                                    wire:model="newOption.features.{{ $index }}.description" 
+                                    class="w-full"
                                     placeholder="Ingrese una descripcion" />
                             </div>
 
