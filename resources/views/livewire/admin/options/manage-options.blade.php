@@ -34,17 +34,40 @@
                                     @case(1)
                                         {{-- text --}}
                                         <span
-                                            class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
+                                            class="bg-green-100 text-green-800 text-xs font-medium me-2 pl-2.5 pr-1.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
+                                            
                                             {{ $feature->description }}
+
+                                            <button 
+                                                class="ml-0.5" 
+                                                onclick="confirmDelete({{$feature->id}})"
+                                                
+                                                >
+                                                <i class="fa fa-trash hover:text-red-500">
+
+                                                </i>
+                                            </button>
+
                                         </span>
                                     @break
 
                                     @case(2)
                                         {{-- color --}}
-                                        <span class="inline-block h-6 w-6 shadow-lg rounded-full border-2 border-gray-300 mr-4"
+                                        <div class="relative">
+                                            <span class="inline-block h-6 w-6 shadow-lg rounded-full border-2 border-gray-300 mr-4"
                                             style="background-color: {{ $feature->value }}">
+                                            </span>
 
-                                        </span>
+                                            <button 
+                                                class="absolute z-10 left-3 -top-2 rounded-full bg-red-500 hover:bg-red-600 h-4 w-4 flex justify-center items-center"
+                                                onclick="confirmDelete({{$feature->id}})">
+
+
+                                                <i class="fa fa-trash text-white text-xs">
+
+                                                </i>
+                                            </button>
+                                        </div>
                                     @break
 
                                     @default
@@ -202,4 +225,32 @@
         </x-slot>
 
     </x-dialog-modal>
+
+    @push('js')
+        
+        <script>
+
+            function confirmDelete(featureId) {
+                Swal.fire({
+                    title: "Estas seguro?",
+                    text: "No podras revertir esto!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Si, borralo!",
+                    cancelButtonText: "Cancelar"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        @this.call('deleteFeature', 'featureId');
+
+                    }
+                });
+            }
+
+        </script>
+
+    @endpush
+
 </div>
