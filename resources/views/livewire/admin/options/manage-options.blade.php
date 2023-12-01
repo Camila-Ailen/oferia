@@ -7,7 +7,7 @@
                     Opciones
                 </h1>
 
-                <x-button wire:click="$set('openModal', true)">
+                <x-button wire:click="$set('newOption.openModal', true)">
                     Nuevo
                 </x-button>
 
@@ -62,7 +62,7 @@
 
     </section>
 
-    <x-dialog-modal wire:model="openModal">
+    <x-dialog-modal wire:model="newOption.openModal">
 
         <x-slot name="title">
             <h1 class="text-lg font-semibold text-gray-700">
@@ -88,7 +88,10 @@
                         Tipo
                     </x-label>
 
-                    <x-select wire:model.live="newOption.type" class="w-full">
+                    <x-select 
+                        wire:model.live="newOption.type" 
+                        class="w-full">
+
                         <option value="1">Texto</option>
                         <option value="2">Color</option>
                     </x-select>
@@ -104,7 +107,7 @@
             </div>
 
             <div class="mb-4 space-y-4">
-                @foreach ($newOption['features'] as $index => $feature)
+                @foreach ($newOption->features as $index => $feature)
                     <div class="p-6 rounded-lg border border-gray-200 relative"
                         wire:key="features-{{$index}}">
 
@@ -125,7 +128,7 @@
                                 </x-label>
 
                                 
-                                @switch($newOption['type'])
+                                @switch($newOption->type)
                                     @case(1)
                                         <x-input 
                                             wire:model="newOption.features.{{ $index }}.value" 
