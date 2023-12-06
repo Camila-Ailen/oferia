@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
-use App\Models\Family; // Add this line to import the Family model
-use App\Http\Controllers\Controller;
+//use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade\PDF;
+use App\Models\Family; // Add this line to import the Family model
 
 class CategoryController extends Controller
 {
@@ -18,6 +20,14 @@ class CategoryController extends Controller
             ->with('family')
             ->paginate(10);
         return view('admin.categories.index', compact('categories'));
+    }
+
+    public function pdf()
+    {
+        $categories = Category::with('family')->get();
+        $pdf = PDF::loadView('admin.categories.pdf', compact('categories'));
+        return $pdf->download('categorias.pdf');
+        //return view('admin.categories.pdf', compact('categories'));
     }
 
     /**

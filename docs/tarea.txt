@@ -1,0 +1,14 @@
+Instalar Laravel Intervention Imagen para reducir el peso de las imagenes (revisar un poco el curso que hay otras buenas ideas)
+https://codersfree.com/courses-status/aprende-laravel-avanzado/instalar-intervention-imagen
+
+Instalar Carrito de compras
+
+Incluir Google Analytics (o laravel analytics), pero dejemos esto para el final ya que ayuda a mejorar, y primero debo terminar algo para mejorarlo
+https://sbsharma.com/integrate-google-analytics-with-laravel/
+https://packagist.org/packages/spatie/laravel-analytics
+
+Incluir buscador avanzado con autocompletado
+https://daguilar.dev/blog/livewire_buscador-con-laravel-livewire-y-alpinejs/
+https://diarioprogramador.com/busqueda-con-autocompletado-en-laravel-y-livewire/
+
+

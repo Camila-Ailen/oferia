@@ -12,8 +12,11 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::get('/options', [OptionController::class, 'index'])->name('options.index');
+Route::get('/categories/pdf', [CategoryController::class, 'pdf'])->name('categories.pdf');
+
 
 Route::resource('families', FamilyController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('subcategories', SubcategoryController::class);
 Route::resource('products', ProductController::class);
+
