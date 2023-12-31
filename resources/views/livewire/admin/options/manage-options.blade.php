@@ -22,6 +22,13 @@
                     <div class="p-6 rounded-lg border border-gray-200 relative"
                         wire:kay="option-{{$option->id}}">
                         <div class="absolute -top-3 px-4 bg-white">
+                            
+                            <button class="mr-1" onclick="confirmDelete({{$option->id}}, 'option')">
+                                <i class="fa fa-trash text-red-500 hover:text-red-600">
+
+                                </i>
+                            </button>
+                            
                             <span>
                                 {{ $option->name }}
                             </span>
@@ -40,9 +47,8 @@
 
                                             <button 
                                                 class="ml-0.5" 
-                                                onclick="confirmDelete({{$feature->id}})"
+                                                onclick="confirmDelete({{$feature->id}}, 'feature')">
                                                 
-                                                >
                                                 <i class="fa fa-trash hover:text-red-500">
 
                                                 </i>
@@ -60,7 +66,7 @@
 
                                             <button 
                                                 class="absolute z-10 left-3 -top-2 rounded-full bg-red-500 hover:bg-red-600 h-4 w-4 flex justify-center items-center"
-                                                onclick="confirmDelete({{$feature->id}})">
+                                                onclick="confirmDelete({{$feature->id}}, 'feature')">
 
 
                                                 <i class="fa fa-trash text-white text-xs">
@@ -230,7 +236,7 @@
         
         <script>
 
-            function confirmDelete(featureId) {
+            function confirmDelete(id, type) {
                 Swal.fire({
                     title: "Estas seguro?",
                     text: "No podras revertir esto!",
@@ -243,7 +249,18 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
 
-                        @this.call('deleteFeature', 'featureId');
+                        switch (type) {
+                            case 'option':
+                                @this.call('deleteOption', id);
+                                break;
+
+                            case 'feature':
+                                @this.call('deleteFeature', id);
+                                break;
+                        
+                            default:
+                                break;
+                        }
 
                     }
                 });

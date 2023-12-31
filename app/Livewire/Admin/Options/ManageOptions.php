@@ -43,7 +43,13 @@ class ManageOptions extends Component
     {
        $feature->delete();
        $this->options = Option::with('features')->get();
+    }
 
+    //elimina la opcion 
+    public function deleteOption(Option $option)
+    {
+        $option->delete();
+        $this->options = Option::with('features')->get();
     }
 
     public function addOption()
